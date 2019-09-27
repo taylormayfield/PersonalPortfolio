@@ -60,6 +60,7 @@ li {
 section {
     border: 1px solid #A88B8A;
 }
+
 #welcome-section {
     display: flex;
     flex-direction: column;
@@ -73,7 +74,6 @@ section {
   #welcome-section > h1 {
     font-size: 3rem;
     font-weight: 200;
-    font-style: ;
     color: white;
 }
 #welcome-section > p {
