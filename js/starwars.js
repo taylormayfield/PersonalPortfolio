@@ -18,8 +18,35 @@ films.forEach(function(film) {
     filmTitle.textContent = films.title
     filmCrawl.innerText = film.opening_crawl
 
-    mainArea.appendChild(filmDiv)
+    mainArea.appendChild(filmDiv
 })
+
+const maleCharacters = people.filter(person => person.gender === 'male')
+const femaleCharacters = people.filter(person => person.gender === 'female')
+const allDivs = mainArea.querySelectorAll('div')
+console.log(maleCharacters)
+console.log(femaleCharacters)
+
+let mainButton = document.createElement('button')
+maleButton.textContent = 'Male Character'
+maleButton.addEventListener('click', () => {
+    maleCharacters.forEach(elt => {
+       let matchedDiv = allDivs.forEach(element => {
+
+       })
+       // elt.setAttribute("style", "visibility: visible;")
+    })
+    femaleCharacters.forEach(elt => {
+       // elt.setAttribute("style", "visibility: hidden;")
+    })
+})
+let femaleButton = document.createElement('button')
+femaleButton.textContent = 'Female Character'
+femaleButton.addEventListener('click', event => {
+    console.log(event)
+})
+mainHeader.appendChild(maleButton)
+mainHeader.appendChild(femaleButton)
 
 people.forEach(function(person) {
     let personDiv = document.createElement('div')
@@ -49,8 +76,3 @@ function getCharNumber(charURL) {
         return charID
     }
     }
-
-const maleCharacters = people.filter(person => person.gender === 'male')
-console.log(maleCharacters)
-const femaleCharacters = people.filter(person => person.gender === 'female')
-console.log(femaleCharacters)
