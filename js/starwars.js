@@ -23,7 +23,8 @@ films.forEach(function(film) {
 
 const maleCharacters = people.filter(person => person.gender === 'male')
 const femaleCharacters = people.filter(person => person.gender === 'female')
-const allDivs = mainArea.querySelectorAll('div')
+const otherCharacters = people.filter(person => person.gender !=== 'female' & 'male')
+const allDivs = Array.from(mainArea.querySelectorAll('div'))
 console.log(maleCharacters)
 console.log(femaleCharacters)
 
@@ -31,13 +32,13 @@ let mainButton = document.createElement('button')
 maleButton.textContent = 'Male Character'
 maleButton.addEventListener('click', () => {
     maleCharacters.forEach(elt => {
-       let matchedDiv = allDivs.forEach(element => {
-
+        let matchedDiv= allDivs.filter(element => {
+        return element.firstChild.textContent === elt.name
        })
-       // elt.setAttribute("style", "visibility: visible;")
+       matchedDiv.setAttribute("style", "display: none;")
     })
     femaleCharacters.forEach(elt => {
-       // elt.setAttribute("style", "visibility: hidden;")
+        //matchedDiv[0].setAttribute("style", "visibility: hidden;")
     })
 })
 let femaleButton = document.createElement('button')
