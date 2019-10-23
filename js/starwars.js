@@ -15,20 +15,20 @@ films.forEach(function(film) {
     filmDiv.appendChild(filmTitle)
     filmDiv.appendChild(filmCrawl)
 
-    filmTitle.textContent = films.title
+    filmTitle.textContent = film.title
     filmCrawl.innerText = film.opening_crawl
-
-    mainArea.appendChild(filmDiv
+    
+    mainArea.appendChild(filmDiv)
 })
 
 const maleCharacters = people.filter(person => person.gender === 'male')
 const femaleCharacters = people.filter(person => person.gender === 'female')
-const otherCharacters = people.filter(person => person.gender !=== 'female' & 'male')
+const otherCharacters = people.filter(person => person.gender !== 'female' && 'male')
 const allDivs = Array.from(mainArea.querySelectorAll('div'))
 console.log(maleCharacters)
 console.log(femaleCharacters)
 
-let mainButton = document.createElement('button')
+let maleButton = document.createElement('button')
 maleButton.textContent = 'Male Character'
 maleButton.addEventListener('click', () => {
     maleCharacters.forEach(elt => {
@@ -46,8 +46,8 @@ femaleButton.textContent = 'Female Character'
 femaleButton.addEventListener('click', event => {
     console.log(event)
 })
-mainHeader.appendChild(maleButton)
-mainHeader.appendChild(femaleButton)
+// mainHeader.appendChild(maleButton)
+// mainHeader.appendChild(femaleButton)
 
 people.forEach(function(person) {
     let personDiv = document.createElement('div')
