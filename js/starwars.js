@@ -5,7 +5,7 @@ console.log('Hey, I am JavaScript on your page!')
 
 console.log('films')
 
-let mainArea = document.querySelector('#main')
+let mainArea = document.querySelector('main')
 
 films.forEach(function (film) {
     let filmDiv = document.createElement('div')
@@ -49,7 +49,7 @@ femaleButton.addEventListener('click', event => {
 // mainHeader.appendChild(maleButton)
 // mainHeader.appendChild(femaleButton)
 
-people.forEach(function (person) {
+people.forEach(function(person) {
     let personDiv = document.createElement('div')
     let name = document.createElement('h1')
     let gender = document.createElement('h3')
