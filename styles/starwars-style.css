@@ -16,12 +16,13 @@ header {
 }
 
 h1 {
-    color: #B75450;
+    font-family: sans-serif;
+    color: #EEDB00;
 }
 p { 
-    color: #B75450;
+    color: #EEDB00;
 }
 
 body {
-   background-color: #F5CAC9;
+   background-color: black;
 }
