@@ -5,9 +5,11 @@ console.log('Hey, I am JavaScript on your page!')
 
 console.log('films')
 
+let mainHeader = document.querySelector('header')
 let mainArea = document.querySelector('main')
 
-films.forEach(function (film) {
+
+/* films.forEach(function (film) {
     let filmDiv = document.createElement('div')
     let filmTitle = document.createElement('h1')
     let filmCrawl = document.createElement('p')
@@ -19,35 +21,41 @@ films.forEach(function (film) {
     filmCrawl.innerText = film.opening_crawl
 
     mainArea.appendChild(filmDiv)
-})
+}); */
+
+
+
 
 const maleCharacters = people.filter(person => person.gender === 'male')
 const femaleCharacters = people.filter(person => person.gender === 'female')
-const otherCharacters = people.filter(person => person.gender !== 'female' && 'male')
+const otherCharacters = people.filter(person => person.gender !== 'female' && person.gender !== 'male')
 const allDivs = Array.from(mainArea.querySelectorAll('div'))
 console.log(maleCharacters)
 console.log(femaleCharacters)
 
 let maleButton = document.createElement('button')
-maleButton.textContent = 'Male Character'
+maleButton.textContent = "Male Characters"
 maleButton.addEventListener('click', () => {
     maleCharacters.forEach(elt => {
         let matchedDiv = allDivs.filter(element => {
             return element.firstChild.textContent === elt.name
         })
-        matchedDiv.setAttribute("style", "display: none;")
-    })
-    femaleCharacters.forEach(elt => {
-        //matchedDiv[0].setAttribute("style", "visibility: hidden;")
+        matchedDiv[0].setAttribute("style", "display: none;")
     })
 })
+
 let femaleButton = document.createElement('button')
-femaleButton.textContent = 'Female Character'
+femaleButton.textContent = "Female Character"
 femaleButton.addEventListener('click', event => {
-    console.log(event)
+    femaleCharacters.forEach(elt => {
+        let matchedDiv = allDivs.filter(element => {
+            return element.firstChild.textContent === elt.name
+        })
+        matchedDiv[0].setAttribute("style", "display: revert;")
+    })
 })
-// mainHeader.appendChild(maleButton)
-// mainHeader.appendChild(femaleButton)
+    mainHeader.appendChild(maleButton)
+    mainHeader.appendChild(femaleButton)
 
 people.forEach(function(person) {
     let personDiv = document.createElement('div')
