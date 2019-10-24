@@ -7,7 +7,7 @@ console.log('films')
 
 let mainArea = document.querySelector('#main')
 
-films.forEach(function(film) {
+films.forEach(function (film) {
     let filmDiv = document.createElement('div')
     let filmTitle = document.createElement('h1')
     let filmCrawl = document.createElement('p')
@@ -17,7 +17,7 @@ films.forEach(function(film) {
 
     filmTitle.textContent = film.title
     filmCrawl.innerText = film.opening_crawl
-    
+
     mainArea.appendChild(filmDiv)
 })
 
@@ -32,10 +32,10 @@ let maleButton = document.createElement('button')
 maleButton.textContent = 'Male Character'
 maleButton.addEventListener('click', () => {
     maleCharacters.forEach(elt => {
-        let matchedDiv= allDivs.filter(element => {
-        return element.firstChild.textContent === elt.name
-       })
-       matchedDiv.setAttribute("style", "display: none;")
+        let matchedDiv = allDivs.filter(element => {
+            return element.firstChild.textContent === elt.name
+        })
+        matchedDiv.setAttribute("style", "display: none;")
     })
     femaleCharacters.forEach(elt => {
         //matchedDiv[0].setAttribute("style", "visibility: hidden;")
@@ -49,12 +49,12 @@ femaleButton.addEventListener('click', event => {
 // mainHeader.appendChild(maleButton)
 // mainHeader.appendChild(femaleButton)
 
-people.forEach(function(person) {
+people.forEach(function (person) {
     let personDiv = document.createElement('div')
     let name = document.createElement('h1')
     let gender = document.createElement('h3')
     let pic = document.createElement('img')
-    
+
     personDiv.appendChild(name)
     personDiv.appendChild(gender)
     personDiv.appendChild(pic)
@@ -70,10 +70,10 @@ people.forEach(function(person) {
 
 function getCharNumber(charURL) {
     let end = charURL.lastIndexOf('/')
-    let charID = charURL.substring(end -2, end)
-    if(charID.indexOf('/') !== -1 ) {
-        return charID.slice(1,2)
+    let charID = charURL.substring(end - 2, end)
+    if (charID.indexOf('/') !== -1) {
+        return charID.slice(1, 2)
     } else {
         return charID
     }
-    }
+}
