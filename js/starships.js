@@ -11,20 +11,20 @@ starships.forEach(ship => {
     shipDiv.appendChild(shipPic)
     contentArea.appendChild(shipDiv)
 
-    let shipNum = getShipNumber(ship.url)
+    let shipNum = getCharNumber(ship.url)
 
     shipName.textContent = ship.name
-    shipPic.src = 'https://starwars-visualguide.com/assets/img/starships/${shipNum}.jpg`
+    shipPic.src = `https://starwars-visualguide.com/assets/img/starships/${shipNum}.jpg`
 
-    mainArea.appendChild(shipDiv)
+    
 })
 
-function getShipNumber(charURL) {
-    let end = shipURL.lastIndexOf('/')
-    let shipID = shipURL.substring(end - 2, end)
-    if (shipID.indexOf('/') !== -1) {
-        return shipID.slice(1, 2)
+function getCharNumber(charURL) {
+    let end = charURL.lastIndexOf('/')
+    let charID = charURL.substring(end - 2, end)
+    if (charID.indexOf('/') !== -1) {
+        return charID.slice(1, 2)
     } else {
-        return shipID
+        return charID
     }
 } 

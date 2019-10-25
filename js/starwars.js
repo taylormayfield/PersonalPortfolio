@@ -60,7 +60,7 @@ femaleButton.addEventListener('click', event => {
 people.forEach(function(person) {
     let personDiv = document.createElement('div')
     let name = document.createElement('h1')
-    let gender = document.createElement('h3')
+    let gender = document.createElement('p')
     let pic = document.createElement('img')
 
     personDiv.appendChild(name)
