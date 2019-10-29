@@ -1,6 +1,6 @@
 import { planets } from '../assets/planets.js'
 
-starships.forEach(planet => {
+planets.forEach(planet => {
     let planetDiv = document.createElement('div')
     let planetName = document.createElement('h3')
     let planetPic = document.createElement('img')
