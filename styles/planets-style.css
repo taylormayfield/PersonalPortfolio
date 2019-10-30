@@ -1,0 +1,53 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 40px;
+    font-family: sans-serif;
+    background-color: black;
+    color: #EEDB00;
+  }
+  
+  h1, p {
+    margin: 0 0 1em 0;
+  }
+
+  .sidebar {
+    float: left;
+    width: 19.1489%;
+  }
+
+  .content {
+    float: right;
+    width: 79.7872%;
+  }
+
+  .wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 10px;
+  }
+
+  .wrapper > * {
+    background-color: #444;
+    color: #EEDB00;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+    margin-bottom: 10px;
+  }
+    
+    .header, .footer {
+      grid-column: 1 / -1;
+      clear: both;
+    }
+
+    @supports (display: grid) {
+        .wrapper > * {
+          width: auto;
+          margin: 0;
+        }
+      }
