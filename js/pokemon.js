@@ -1,30 +1,29 @@
 
-const allPokemon = (async () => {
-const response = await fetch('https://pokeapi.co/api/v2/pokemon/')
-const myJson = await response.json()
-console.log(JSON.stringify(myJson))
-})
+async function getAPIData(url) {
+    try {
+        const response = await fetch(url)
+        const data =await response.json()
+        return data
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/')
 
 
-console.log(allPokemon().then)
 
 
-/* people.forEach(function(person) {
-    let personDiv = document.createElement('div')
-    let name = document.createElement('h1')
-    let gender = document.createElement('p')
+let mainArea = document.querySelector('main')
+
+function populateDOM(pokeArray) {
+    pokeArray.forEach(pokemon => {
+        console.log(pokemon)
+    let pokeDiv = document.createElement('div')
+    let name = document.createElement('h3')
     let pic = document.createElement('img')
 
-    personDiv.appendChild(name)
-    personDiv.appendChild(gender)
-    personDiv.appendChild(pic)
-
-    let charNum = getCharNumber(person.url)
-
-    name.textContent = person.name
-    gender.textContent = gender.name
-    pic.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`
-
-    mainArea.appendChild(personDiv)
-})*/
-
+    pokeDiv.setAttribute('class', 'charDivs')
+    pic.setAttribute('class', 'picDiv')
+    })
+}
