@@ -16,8 +16,9 @@ header {
 
 button {
     padding: 20px;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     border-radius: 10% / 50%;
+    background-color:#EEDB00;
 }
 
 h1 {
