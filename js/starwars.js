@@ -13,7 +13,7 @@ const justNames =people.map(person => {
 })
 
 const maleCharacters = people.filter(person => person.gender === 'male')
-const femaleCharaters = people.filter(person => person.gender === 'female')
+const femaleCharacters = people.filter(person => person.gender === 'female')
 const otherCharacters = people.filter(person => person.gender !== 'female' && person.gender !== 'male')
 
 people.forEach(person => {
@@ -76,7 +76,12 @@ femaleButton.addEventListener('click', () => {
         let matchedDiv = allDivs.find(oneDiv => {
             return oneDiv.firstChild.textContent === character.name
         })
-        matchedDiv.setAttribute("style", "display: revert;")
+        if (matchedDiv.getAttribute("style") === "display: none;") {
+            console.log(matchedDiv)
+            matchedDiv.setAttribute("style", "display: revert;")
+        } else {
+            matchedDiv.setAttribute("style", "display: none;")
+        }
     })
 })
 
@@ -87,7 +92,12 @@ otherButton.addEventListener('click', () => {
         let matchedDiv = allDivs.find(oneDiv => {
             return oneDiv.firstChild.textContent === character.name
         })
-        matchedDiv.setAttribute("style", "display: revert;")
+        if (matchedDiv.getAttribute("style") === "display: none;") {
+            console.log(matchedDiv)
+            matchedDiv.setAttribute("style", "display: revert;")
+        } else {
+            matchedDiv.setAttribute("style", "display: none;")
+        }
     })
 })
 
