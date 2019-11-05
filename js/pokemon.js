@@ -26,6 +26,9 @@ console.log(theData)
 let mainArea = document.querySelector('main')
 
 function populateDOM(single_pokemon) {
+        let pokeScene = document.createElement('div')
+
+
         let pokeDiv = document.createElement('div')
         let name = document.createElement('h3')
         let pic = document.createElement('img')
@@ -50,4 +53,9 @@ function getPokeNumber(id) {
             if (id > 9 && id < 100) {
                 return `0${id}`
             } else return id
+        }
+
+        function fillCardBack(pokeBack) {
+            let pokeOrder = document.createElement('p').textContent = poke.order
+            pokeBack.appendChild(pokeOrder)
         }

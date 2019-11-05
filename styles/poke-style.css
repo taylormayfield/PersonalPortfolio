@@ -12,6 +12,11 @@ img {
     width: 120px;
 }
 
-div {
-    
+p {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    margin: 0px;
+    font-size: 10px;
+    line-height: 10px;
 }
