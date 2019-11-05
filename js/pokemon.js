@@ -33,8 +33,8 @@ function populateDOM(single_pokemon) {
         let name = document.createElement('h3')
         let pic = document.createElement('img')
 
-        pokeDiv.setAttribute('class', 'charDivs')
-        pic.setAttribute('class', 'picDivs')
+        //pokeDiv.setAttribute('class', 'charDivs')
+        //pic.setAttribute('class', 'picDivs')
 
         let pokeNum = getPokeNumber(single_pokemon.id)
 
@@ -42,8 +42,8 @@ function populateDOM(single_pokemon) {
 
         pic.src = `..images/${pokeNum}.png`
 
-        pokeDiv.appendChild(name)
         pokeDiv.appendChild(pic)
+        pokeDiv.appendChild(name)
 
         mainArea.appendChild(pokeDiv)
     }
