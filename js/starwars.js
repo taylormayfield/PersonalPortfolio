@@ -12,10 +12,8 @@ const justNames =people.map(person => {
     {foo: 'bar'}]}
 })
 
-const maleCharacters = people.filter(person => person.gender === 'male')
-const femaleCharacters = people.filter(person => person.gender === 'female')
-const otherCharacters = people.filter(person => person.gender !== 'female' && person.gender !== 'male')
 
+function showCharArray(arrayOfPeople){
 people.forEach(person => {
     let personDiv = document.createElement('div')
     let name = document.createElement('h1')
@@ -38,6 +36,7 @@ people.forEach(person => {
 
     mainArea.appendChild(personDiv)
 })
+}
 
 function getCharNumber(charURL) {
     let end = charURL.lastIndexOf('/')
@@ -52,27 +51,38 @@ function getCharNumber(charURL) {
 const allDivs = Array.from(document.querySelectorAll('div'))
 
 const mainHeader = document.querySelector('header')
-
 let maleButton = document.createElement('button')
 maleButton.textContent = 'Male Characters'
+
 maleButton.addEventListener('click', () => {
-    maleCharacters.forEach(character => {
+    while (mainArea.firstChild){
+        mainArea.removeChild(mainArea.firstChild)
+    }
+    showCharArray(maleCharacters)
+   /* maleCharacters.forEach(character => {
         let matchedDiv = allDivs.find(oneDiv => {
             return oneDiv.firstChild.textContent === character.name
         })
         if (matchedDiv.getAttribute("style") === "display: none;") {
             console.log(matchedDiv)
+
             matchedDiv.setAttribute("style", "display: revert;")
         } else {
             matchedDiv.setAttribute("style", "display: none;")
         }
-    })
+    })*/
 })
 
 let femaleButton = document.createElement('button')
 femaleButton.textContent = 'Female Characters'
 femaleButton.addEventListener('click', () => {
-    femaleCharacters.forEach(character => {
+    while (mainArea.firstChild){
+        mainArea.removeChild(mainArea.firstChild)
+    }
+    showCharArray(femaleCharacters)
+    /*deleteNodes()
+    showCharArray(femaleCharacters)*/
+    /*femaleCharacters.forEach(character => {
         let matchedDiv = allDivs.find(oneDiv => {
             return oneDiv.firstChild.textContent === character.name
         })
@@ -82,13 +92,17 @@ femaleButton.addEventListener('click', () => {
         } else {
             matchedDiv.setAttribute("style", "display: none;")
         }
-    })
+    })*/
 })
 
 let otherButton = document.createElement('button')
 otherButton.textContent = 'Other Characters'
 otherButton.addEventListener('click', () => {
-    otherCharacters.forEach(character => {
+    while (mainArea.firstChild){
+        mainArea.removeChild(mainArea.firstChild)
+    }
+    showCharArray(otherCharacters)
+    /*otherCharacters.forEach(character => {
         let matchedDiv = allDivs.find(oneDiv => {
             return oneDiv.firstChild.textContent === character.name
         })
@@ -98,13 +112,17 @@ otherButton.addEventListener('click', () => {
         } else {
             matchedDiv.setAttribute("style", "display: none;")
         }
-    })
+    })*/
 })
 
 
 mainHeader.appendChild(maleButton)
 mainHeader.appendChild(femaleButton)
 mainHeader.appendChild(otherButton)
+
+const maleCharacters = people.filter(person => person.gender === 'male')
+const femaleCharacters = people.filter(person => person.gender === 'female')
+const otherCharacters = people.filter(person => person.gender !== 'female' && person.gender !== 'male')
 
 
 console.log(otherCharacters)
