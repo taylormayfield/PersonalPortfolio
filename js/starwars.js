@@ -14,7 +14,7 @@ const justNames =people.map(person => {
 
 
 function showCharArray(arrayOfPeople){
-people.forEach(person => {
+arrayOfPeople.forEach(person => {
     let personDiv = document.createElement('div')
     let name = document.createElement('h1')
     let gender = document.createElement('p')
