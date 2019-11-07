@@ -51,9 +51,9 @@ main {
     backface-visibility: hidden;
 }
 
-.card__face--front {
-    /*background: red; */
-}
+/*.card__face--front {
+    background: red; 
+}*/
 
 .card__face--back {
     transform: rotateY(180deg);

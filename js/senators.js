@@ -7,8 +7,16 @@ async function getAPIData(url) {
         console.error(error)
     }
 }
-
+let allSenators = []
 const theData = getAPIData('senators.json').then(data => {
     allSenators = data.results[0].members
 })
 
+const republicans = allSenators.filter(senator => senator.party === 'R')
+const democrates = allSenators.filter(senator => senator.party === 'D')
+
+const container = document.querySelector('.container')
+
+function populateDOM(senatorArray) {
+    
+}
