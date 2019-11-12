@@ -8,13 +8,39 @@ async function getAPIData(url) {
     }
 }
 let allSenators = []
+let simpleSenators = []
+
 const theData = getAPIData('senators.json').then(data => {
     allSenators = data.results[0].members
-    populateDOM(allSenators)
+    console.log(allSenators)
+    simpleSenators = mapSenators(allSenators)
+    populateDOM(simpleSenators)
 })
 
 const republicans = allSenators.filter(senator => senator.party === 'R')
-const democrates = allSenators.filter(senator => senator.party === 'D')
+const democrats = allSenators.filter(senator => senator.party === 'D')
+
+console.log(republicans, democrats)
+
+//map example
+
+function mapSenators(allOfThem) {
+    const resultMap = allOfThem.map(senator => {
+        return {
+            id: senator.id,
+            name: `${senator.first_name} ${senator.last_name}`,
+            party: senator.party,
+            birth_date: senator.date_of_birth,
+            age: _calculateAge(new Date(senator.date_of_birth)),
+            gender: senator.gender,
+        }
+    })
+    return resultMap
+}
+
+
+
+
 
 const container = document.querySelector('.container')
 
@@ -48,29 +74,29 @@ function populateCardContent(senator) {
     let figure = document.createElement('figure')
     figure.setAttribute('class', 'image is-96x96')
     let figureImage = document.createElement('img')
-    if(senator.party === "R") {
-    figureImage.src = "/images/elephant.png"
+    if (senator.party === "R") {
+        figureImage.src = "/images/elephant.png"
     }
-    if(senator.party === "D") {
+    if (senator.party === "D") {
         figureImage.src = "/images/donkey.png"
-        }
+    }
     figureImage.alt = "placeholder image"
     let mediaContent = document.createElement('div')
     mediaContent.setAttribute('class', 'media-content')
     let titleP = document.createElement('p')
     titleP.setAttribute('class', 'title is-4')
-    titleP.textContent = `${senator.first_name} ${senator.last_name}`
+    titleP.textContent = `${senator.name}`
     let subtitleP = documemt.createElement('p')
     subtitleP.setAttribute('class', 'subtitle is -6')
-
+    subtitleP.textContent = `${senator.birth_date} Age: ${senator.age}`
     let contentDiv = document.createElement('div')
     contentDiv.setAttribute('class', 'content')
     contentDiv.textContent = `sdkfjlksdvj;kdsmfv sdfjskldjfs sdkfjsdlkfjlkd sdkjfsdf jgkfdhiovd`
-    let contentBreak = document.createElement('br')
+    let contentBreak = document.createElement('hr')
     let timeSection = document.createElement('time')
     let newDate = new Date()
     timeSection.dateTime = `${newDate}`
-    timeSection.textContent =`${newDate}`
+    timeSection.textContent = `${newDate}`
 
     mediaContent.appendChild(titleP)
     mediaContent.appendChild(subtitleP)
@@ -81,5 +107,10 @@ function populateCardContent(senator) {
     contentDiv.appendChild(contentBreak)
     contentDiv.appendChild(timeSection)
     cardContent.appendChild(media)
+    cardContent.appendChild(contentDiv)
     return cardContent
+}
+
+function _calculateAge(birthday) {
+    var age
 }
