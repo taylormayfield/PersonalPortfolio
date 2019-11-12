@@ -33,7 +33,7 @@ function populateDOM(single_pokemon) {
         let name = document.createElement('p')
         let pic = document.createElement('img')
 
-        fillCardFront(pokeFront, single_pokemon)
+       // fillCardFront(pokeFront, single_pokemon)
         fillCardBack(pokeBack, single_pokemon)
 
         pokeScene.setAttribute('class', 'scene')

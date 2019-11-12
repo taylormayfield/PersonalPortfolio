@@ -20,22 +20,22 @@ const container = document.querySelector('.container')
 
 function populateDOM(senatorArray) {
     senatorArray.forEach(senator => {
-    let card = document.createElement('div')
-    card.setAttribute('class', 'card')
-    let cardImage = document.createElement('div')
-    cardImage.setAttribute('class', 'card-image')
-    let cardFigure = document.createElement('figure')
-    //cardFigure.setAttribute('class', 'image is -4by3')
-    let figureImage = document.createElement('img')
-    figureImage.src = `https://www.congress.gov/img/member/${senator.id.toLowerCase()}_200.jpg`
-    figureImage.alt = "Placeholder Image"
+        let card = document.createElement('div')
+        card.setAttribute('class', 'card')
+        let cardImage = document.createElement('div')
+        cardImage.setAttribute('class', 'card-image')
+        let cardFigure = document.createElement('figure')
+        //cardFigure.setAttribute('class', 'image is -4by3')
+        let figureImage = document.createElement('img')
+        figureImage.src = `https://www.congress.gov/img/member/${senator.id.toLowerCase()}_200.jpg`
+        figureImage.alt = 'Placeholder Image'
 
-    cardFigure.appendChild(figureImage)
-    cardImage.appendChild(cardImage)
-    card.appendChild(cardImage)
-    card.appendChild(populateCardContent(senator))
-    container.appendChild(card)
-})
+        cardFigure.appendChild(figureImage)
+        cardImage.appendChild(cardImage)
+        card.appendChild(cardImage)
+        card.appendChild(populateCardContent(senator))
+        container.appendChild(card)
+    })
 }
 
 function populateCardContent(senator) {
@@ -43,18 +43,34 @@ function populateCardContent(senator) {
     cardContent.setAttribute('class', 'card-content')
     let media = document.createElement('div')
     media.setAttribute('class', 'media')
-    let mediaLeft =document.createElement('div')
+    let mediaLeft = document.createElement('div')
     mediaLeft.setAttribute('class', 'media-left')
     let figure = document.createElement('figure')
-    figure.setAttribute('class', 'image is-48x48')
+    figure.setAttribute('class', 'image is-96x96')
     let figureImage = document.createElement('img')
-    figureImage.src = ""
+    if(senator.party === "R") {
+    figureImage.src = "/images/elephant.png"
+    }
+    if(senator.party === "D") {
+        figureImage.src = "/images/donkey.png"
+        }
+    figureImage.alt = "placeholder image"
     let mediaContent = document.createElement('div')
     mediaContent.setAttribute('class', 'media-content')
     let titleP = document.createElement('p')
     titleP.setAttribute('class', 'title is-4')
-    let subtitleP =documemt.createElement('p')
+    titleP.textContent = `${senator.first_name} ${senator.last_name}`
+    let subtitleP = documemt.createElement('p')
     subtitleP.setAttribute('class', 'subtitle is -6')
+
+    let contentDiv = document.createElement('div')
+    contentDiv.setAttribute('class', 'content')
+    contentDiv.textContent = `sdkfjlksdvj;kdsmfv sdfjskldjfs sdkfjsdlkfjlkd sdkjfsdf jgkfdhiovd`
+    let contentBreak = document.createElement('br')
+    let timeSection = document.createElement('time')
+    let newDate = new Date()
+    timeSection.dateTime = `${newDate}`
+    timeSection.textContent =`${newDate}`
 
     mediaContent.appendChild(titleP)
     mediaContent.appendChild(subtitleP)
@@ -62,5 +78,8 @@ function populateCardContent(senator) {
     mediaLeft.appendChild(figure)
     media.appendChild(mediaLeft)
     media.appendChild(mediaContent)
-    cardContent.appendChild()
+    contentDiv.appendChild(contentBreak)
+    contentDiv.appendChild(timeSection)
+    cardContent.appendChild(media)
+    return cardContent
 }
