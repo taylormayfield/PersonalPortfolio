@@ -80,7 +80,7 @@ femaleButton.addEventListener('click', () => {
         mainArea.removeChild(mainArea.firstChild)
     }
     showCharArray(femaleCharacters)
-    /*deleteNodes()
+    /* deleteNodes()
     showCharArray(femaleCharacters)*/
     /*femaleCharacters.forEach(character => {
         let matchedDiv = allDivs.find(oneDiv => {
@@ -92,7 +92,7 @@ femaleButton.addEventListener('click', () => {
         } else {
             matchedDiv.setAttribute("style", "display: none;")
         }
-    })*/
+    }) */
 })
 
 let otherButton = document.createElement('button')
@@ -102,7 +102,7 @@ otherButton.addEventListener('click', () => {
         mainArea.removeChild(mainArea.firstChild)
     }
     showCharArray(otherCharacters)
-    /*otherCharacters.forEach(character => {
+    /* otherCharacters.forEach(character => {
         let matchedDiv = allDivs.find(oneDiv => {
             return oneDiv.firstChild.textContent === character.name
         })
@@ -112,7 +112,7 @@ otherButton.addEventListener('click', () => {
         } else {
             matchedDiv.setAttribute("style", "display: none;")
         }
-    })*/
+    }) */
 })
 
 
