@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 main {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -6,6 +11,7 @@ main {
     max-width:1280px;
     margin: 0 auto;
     margin-bottom: 6rem;
+    background-color: #56756C;
 }
 
 .picDivs {
@@ -44,7 +50,7 @@ main {
     width: 100%;
     height: 100%;
     line-height: 260px;
-    /*color: ;*/
+    background-color: #ECE9E7;
     text-align: center;
     font-weight: bold;
     font-size: 40px;
