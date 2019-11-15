@@ -27,7 +27,7 @@ main {
 .scene {
     width: 200px;
     height: 260px;
-    border: 1px solid #CCC;
+    border: 5px solid #B29B87;
     margin: 40px 0;
     perspective: 600px;
 }

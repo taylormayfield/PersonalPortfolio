@@ -1,4 +1,4 @@
-class Pokemon {
+/*class Pokemon {
     constructor(id, name, stats) {
         this.id = id
         this.name = name
@@ -8,7 +8,7 @@ class Pokemon {
 
 const Thoremon = new Pokemon(900, 'Thoremon', 130)
 
-populateDOM(Thoremon)
+populateDOM(Thoremon) */
 
 async function getAPIData(url) {
     try {
@@ -23,8 +23,8 @@ async function getAPIData(url) {
 const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/')
     .then(data => {
         for (const pokemon of data.results) {
-            getAPIData(pokemon.url).then(pokedata => {
-                populateDOM(pokedata)
+            getAPIData(pokemon.url).then(pokeData => {
+                populateDOM(pokeData)
             })
         }
     })
@@ -46,27 +46,19 @@ function populateDOM(single_pokemon) {
 
     pokeScene.setAttribute('class', 'scene')
     pokeCard.setAttribute('class', 'card')
-    pokeCard.setAttribute(pokeFront)
-    pokeCard.setAttribute(pokeBack)
-    pokeScene.setAttribute(pokeCard)
-
-    let pokeNum = getPokeNumber(single_pokemon.id)
-    pokeFront.appendChild(name)
-    name.texContent = `${single_pokemon.name} height: ${single_pokemon.height}`
-
     pokeCard.appendChild(pokeFront)
     pokeCard.appendChild(pokeBack)
     pokeScene.appendChild(pokeCard)
 
     mainArea.appendChild(pokeScene)
 
-    pokeCard.addEventListener('click', function () {
-        pokeCard.classList.toggle('is-flipped');
-    });
+    pokeCard.addEventListener('click', function() {
+        pokeCard.classList.toggle('is-flipped')
+    })
 }
 
 function fillCardFront(pokeFront, data) {
-    pokeFront.setAttribute('class', 'card_face card_face--front')
+    pokeFront.setAttribute('class', 'card__face card__face--front')
     let name = document.createElement('p')
     let pic = document.createElement('img')
     pic.setAttribute('class', 'picDivs')
@@ -79,10 +71,10 @@ function fillCardFront(pokeFront, data) {
 }
 
 function fillCardBack(pokeBack, data) {
-    pokeBack.setAttribute('class', 'card_face card_face--back')
+    pokeBack.setAttribute('class', 'card__face card__face--back')
     let pokeOrder = document.createElement('p')
     let pokeHP = document.createElement('h5')
-    pokeOrder.textContent = `#${data.id} ${data.name[0].toUpperCase()} ${data.name.slice(1)}`
+    pokeOrder.textContent = `#${data.id} ${data.name[0].toUpperCase()}${data.name.slice(1)}`
     pokeHP.textContent = data.stats[0].base_stat
     pokeBack.appendChild(pokeOrder)
     pokeBack.appendChild(pokeHP)
