@@ -1,14 +1,29 @@
-/*class Pokemon {
+class Pokemon {
     constructor(id, name, stats) {
         this.id = id
         this.name = name
-        this.stats = stats
+        this.base_stat = stats
     }
 }
 
-const Thoremon = new Pokemon(900, 'Thoremon', 130)
+//const Thoremon = new Pokemon(900, 'Thoremon', 130)
 
-populateDOM(Thoremon) */
+document.querySelector('#pokeButton').addEventListener('click', () => {
+    let pokeId = prompt("Provide the Pokemon ID you want to add:")
+    let pokeIdNum = parseInt(pokeId, 10)
+    if (pokeIdNum < 807) {
+        alert('That Pokemon ID does not exist! Please enter a different one.')
+        return
+    } else {
+        getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeId}`)
+            .then(result => {
+                //let newPokemon = new Pokemon(result)
+                populateDOM(result)
+            })
+            .catch(error => console.log(error))
+    }
+})
+
 
 async function getAPIData(url) {
     try {
@@ -20,14 +35,13 @@ async function getAPIData(url) {
     }
 }
 
-const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/')
-    .then(data => {
-        for (const pokemon of data.results) {
-            getAPIData(pokemon.url).then(pokeData => {
-                populateDOM(pokeData)
-            })
-        }
-    })
+const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/').then(data => {
+    for (const pokemon of data.results) {
+        getAPIData(pokemon.url).then(pokeData => {
+            populateDOM(pokeData)
+        })
+    }
+})
 
 console.log(theData)
 
@@ -52,7 +66,7 @@ function populateDOM(single_pokemon) {
 
     mainArea.appendChild(pokeScene)
 
-    pokeCard.addEventListener('click', function() {
+    pokeCard.addEventListener('click', function () {
         pokeCard.classList.toggle('is-flipped')
     })
 }
@@ -64,7 +78,8 @@ function fillCardFront(pokeFront, data) {
     pic.setAttribute('class', 'picDivs')
     let pokeNum = getPokeNumber(data.id)
     pokeFront.appendChild(name)
-    pic.src = `../images/${pokeNum}.png`
+    //pic.src = `../images/${pokeNum}.png`
+    pic.src = `https://raw.githubusercontent.com/fanzey1/pokemon.json/master/images/${pokeNum}.png`
 
     pokeFront.appendChild(pic)
     pokeFront.appendChild(name)

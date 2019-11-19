@@ -3,10 +3,18 @@
     padding: 0;
 }
 
+h1 {
+    background-color: #ECE9E7;
+    color: #B29B87;
+    text-align: center;
+    font-size: 2rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
 main {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 2rem;
+    grid-gap: 1rem;
     width: 100%;
     max-width:1280px;
     margin: 0 auto;
@@ -28,7 +36,7 @@ main {
     width: 200px;
     height: 260px;
     border: 5px solid #B29B87;
-    margin: 40px 0;
+    margin: 10px 0;
     perspective: 600px;
 }
 
@@ -73,3 +81,13 @@ p {
     font-size: 18px;
     line-height: 0px;
 } 
+
+button {
+    width: 150px;
+    height: 80px;
+    background-color: #ECE9E7;
+    color:#B29B87;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    margin: 20px;
+}
