@@ -8,6 +8,19 @@ class Pokemon {
 
 //const Thoremon = new Pokemon(900, 'Thoremon', 130)
 
+document.querySelector('#getHP').addEventListener('click', getHP(25))
+
+function getHP(pokemonID) {
+    getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokemonID}`)
+    .then(element => {
+        const HP = element.stats.find(element => {
+            return element.stat.name === "hp"
+        })
+        //console.log(HP.base_stat)
+        return HP.base_stat
+    })
+}
+
 document.querySelector('#pokeButton').addEventListener('click', () => {
     let pokeId = prompt("Provide the Pokemon ID you want to add:")
     let pokeIdNum = parseInt(pokeId, 10)
@@ -35,21 +48,21 @@ async function getAPIData(url) {
     }
 }
 
-const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/').then(data => {
+const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/?limit=25')
+.then(data => {
     for (const pokemon of data.results) {
-        getAPIData(pokemon.url).then(pokeData => {
-            populateDOM(pokeData)
+        getAPIData(pokemon.url).then(pokedata => {
+            populateDOM(pokedata)
         })
     }
 })
 
-console.log(theData)
-
-
+//console.log(theData)
 
 let mainArea = document.querySelector('main')
 
 function populateDOM(single_pokemon) {
+    //single_pokemon.hp = getHP(single_pokemon.id)
     let pokeScene = document.createElement('div')
     let pokeCard = document.createElement('div')
     let pokeFront = document.createElement('div')
@@ -68,6 +81,7 @@ function populateDOM(single_pokemon) {
 
     pokeCard.addEventListener('click', function () {
         pokeCard.classList.toggle('is-flipped')
+       
     })
 }
 
@@ -90,7 +104,7 @@ function fillCardBack(pokeBack, data) {
     let pokeOrder = document.createElement('p')
     let pokeHP = document.createElement('h5')
     pokeOrder.textContent = `#${data.id} ${data.name[0].toUpperCase()}${data.name.slice(1)}`
-    pokeHP.textContent = data.stats[0].base_stat
+    pokeHP.textContent = getHP(data.id)
     pokeBack.appendChild(pokeOrder)
     pokeBack.appendChild(pokeHP)
 }
