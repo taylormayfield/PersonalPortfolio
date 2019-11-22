@@ -116,4 +116,3 @@ function getPokeNumber(id) {
         return `0${id}`
     } else return id
 }
-
