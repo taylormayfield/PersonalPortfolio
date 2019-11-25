@@ -92,8 +92,8 @@ function fillCardFront(pokeFront, data) {
     pic.setAttribute('class', 'picDivs')
     let pokeNum = getPokeNumber(data.id)
     pokeFront.appendChild(name)
-    pic.src = `../images/${pokeNum}.png`
-    //pic.src = `https://raw.githubusercontent.com/fanzey1/pokemon.json/master/images/${pokeNum}.png`
+    //pic.src = `../images/${pokeNum}.png`
+    pic.src = `https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${pokeNum}.png`
 
     pokeFront.appendChild(pic)
     pokeFront.appendChild(name)
