@@ -8,6 +8,7 @@ async function getData()
 getData()
 .then(data => console.log(data));
 
+let mainArea = document.querySelector('main')
 
 function showCharArray(arrayOfPeople){
   arrayOfPeople.forEach(person => {
