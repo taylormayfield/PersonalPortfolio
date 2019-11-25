@@ -18,28 +18,38 @@ button {
     padding: 20px;
     font-size: 1.2rem;
     border-radius: 10% / 50%;
-    color:#EEDB00;
-    background-color: grey;
-    border: grey;
+    color:#B29B87;
+    background-color: #ECE9E7;
+    border: #ECE9E7;
+}
+
+h5 {
+    background-color: #ECE9E7;
+    color: #B29B87;
+    text-align: center;
+    font-size: 2rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    height: 50px;
 }
 
 h1 {
     font-size: 1rem;
     font-family: sans-serif;
-    color: #EEDB00;
+    color: #B29B87;
     margin: 0;
 }
 
 body {
-   background-color: black;
+   background-color: #56756C;
 }
 
 div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid #EEDB00;
-    padding: 6px;
+    border: 3px solid #B29B87;
+    padding: 3px;
+    background-color: #ECE9E7;
 }
 
 h3 {
@@ -47,7 +57,7 @@ h3 {
 }
 
 p {
-    color: #EEDB00
+    color: #B29B87
 }
 
 img {
