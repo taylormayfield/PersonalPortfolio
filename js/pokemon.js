@@ -24,7 +24,7 @@ function getHP(pokemonID) {
 document.querySelector('#pokeButton').addEventListener('click', () => {
     let pokeId = prompt("Provide the Pokemon ID you want to add:")
     let pokeIdNum = parseInt(pokeId, 10)
-    if (pokeIdNum < 807) {
+    if (pokeIdNum > 807) {
         alert('That Pokemon ID does not exist! Please enter a different one.')
         return
     } else {
