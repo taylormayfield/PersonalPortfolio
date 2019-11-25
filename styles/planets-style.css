@@ -5,8 +5,8 @@
   body {
     margin: 40px;
     font-family: sans-serif;
-    background-color: black;
-    color: #EEDB00;
+    background-color: #ECE9E7;
+    color: #ECE9E7;
   }
   
   h1, p {
@@ -32,8 +32,8 @@
   }
 
   .wrapper > * {
-    background-color: #444;
-    color: #EEDB00;
+    background-color: #56756C;
+    color: #ECE9E7;
     border-radius: 5px;
     padding: 20px;
     font-size: 150%;
