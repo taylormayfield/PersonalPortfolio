@@ -7,8 +7,8 @@ EDIT ON
 body {
   margin: 40px;
   font-family: 'Open Sans', 'sans-serif';
-  background-color: black;
-  color: #444;
+  background-color: #ECE9E7;
+  color:#ECE9E7;
 }
 
 h1, p {
@@ -36,8 +36,8 @@ h1, p {
 }
 
 .wrapper > * {
-  background-color: #444;
-  color: #EEDB00;
+  background-color: #56756C;
+  color: #ECE9E7;
   font-family: sans-serif;
   border-radius: 5px;
   padding: 20px;
