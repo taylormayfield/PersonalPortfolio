@@ -1,51 +1,66 @@
-async function getData() 
+async function getAPIData(url) {
+    try {
+        const response = await fetch(url)
+        const data = await response.json()
+        return data
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+const theData = getAPIData('https://rickandmortyapi.com/api/character/')
+.then(data => {
+    for (const rickandmorty of data.results) {
+        getAPIData(rickandmorty.url).then(rickdata => {
+            populateDOM(rickdata)
+        })
+    }
+})
+
+let mainArea = document.querySelector('main')
+
+function populateDOM(single_pokemon) {
+    //single_pokemon.hp = getHP(single_pokemon.id)
+    let rickScene = document.createElement('div')
+    let charCard = document.createElement('div')
+    let cardFront = document.createElement('div')
+    let cardBack = document.createElement('div')
+
+    fillCardFront(cardFront, single_char)
+    fillCardBack(cardBack, single_char)
+
+    rickScene.setAttribute('class', 'scene')
+    charCard.setAttribute('class', 'card')
+    charCard.appendChild(cardFront)
+    charCard.appendChild(cardBack)
+    rickScene.appendChild(charCard)
+
+    mainArea.appendChild(rickScene)
+
+    charCard.addEventListener('click', function () {
+        charCard.classList.toggle('is-flipped')
+       
+    })
+}
+
+
+
+
+
+
+
+/*async function getData() 
         {
            let response = await fetch('https://rickandmortyapi.com/api/character/');
            let data = await response.json()
             return data;
-        }
+        }*/
 
-getData()
-.then(data => console.log(data));
+/*getData()
+.then(data => console.log(data));*/
 
-let mainArea = document.querySelector('main')
 
-function showCharArray(arrayOfPeople){
-  arrayOfPeople.forEach(person => {
-      let personDiv = document.createElement('div')
-      let name = document.createElement('h1')
-      let gender = document.createElement('p')
-      let pic = document.createElement('img')
-  
-      personDiv.setAttribute('class', 'charDivs')
-      pic.setAttribute('class', 'picDivs')
-  
-  
-      let charNum = getCharNumber(person.url)
-  
-      name.textContent = person.name
-      gender.textContent = `${person.gender}`
-      pic.src = `"https://rickandmortyapi.com/api/character/avatar/${charNum}.jpeg"`
 
-      console.log(charNum)
-  
-      personDiv.appendChild(name)
-      personDiv.appendChild(gender)
-      personDiv.appendChild(pic)
-  
-      mainArea.appendChild(personDiv)
-  })
-  }
-  
-  
-  function getCharNumber(charURL) {
-      let end = charURL.lastIndexOf('/')
-      let charID = charURL.substring(end - 2, end)
-      if (charID.indexOf('/') !== -1) {
-          return charID.slice(1, 2)
-      } else {
-          return charID
-      }
-  }
+
 
   //images "https://rickandmortyapi.com/api/character/avatar/.jpeg"
