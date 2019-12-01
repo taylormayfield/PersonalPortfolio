@@ -19,8 +19,7 @@ const theData = getAPIData('https://rickandmortyapi.com/api/character/')
 
 let mainArea = document.querySelector('main')
 
-function populateDOM(single_pokemon) {
-    //single_pokemon.hp = getHP(single_pokemon.id)
+function populateDOM(single_char) {
     let rickScene = document.createElement('div')
     let charCard = document.createElement('div')
     let cardFront = document.createElement('div')
