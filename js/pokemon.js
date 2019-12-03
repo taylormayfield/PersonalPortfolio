@@ -1,43 +1,31 @@
+
 class Pokemon {
-    constructor(id, name, stats) {
-        this.id = id
-        this.name = name
-        this.base_stat = stats
+    constructor(id, name, forms, abilities, types) {
+        this.id = id;
+        this.name = name;
+        this.forms = forms;
+        this.abilities = abilities;
+        this.types = types;
     }
 }
 
-//const Thoremon = new Pokemon(900, 'Thoremon', 130)
-
-document.querySelector('#getHP').addEventListener('click', getHP(25))
-
-function getHP(pokemonID) {
-    getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokemonID}`)
-    .then(element => {
-        const HP = element.stats.find(element => {
-            return element.stat.name === "hp"
-        })
-        //console.log(HP.base_stat)
-        return HP.base_stat
-    })
-}
-
+//prompt to create new pokemon card 
 document.querySelector('#pokeButton').addEventListener('click', () => {
     let pokeId = prompt("Provide the Pokemon ID you want to add:")
     let pokeIdNum = parseInt(pokeId, 10)
     if (pokeIdNum > 807) {
-        alert('That Pokemon ID does not exist! Please enter a different one.')
+        alert('That Pokemon ID does not exist! There are only 807 Pokemon.')
         return
     } else {
         getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeId}`)
             .then(result => {
-                //let newPokemon = new Pokemon(result)
                 populateDOM(result)
             })
             .catch(error => console.log(error))
     }
 })
 
-
+//fetch data from url
 async function getAPIData(url) {
     try {
         const response = await fetch(url)
@@ -48,21 +36,35 @@ async function getAPIData(url) {
     }
 }
 
-const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/?limit=25')
-.then(data => {
-    for (const pokemon of data.results) {
-        getAPIData(pokemon.url).then(pokedata => {
-            populateDOM(pokedata)
-        })
-    }
-})
 
-//console.log(theData)
+//returned async
+const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/?limit=25')
+    .then(data => {
+        for (const pokemon of data.results) {
+            getAPIData(pokemon.url).then(pokedata => {
+                populateDOM(pokedata)
+            })
+        }
+    })
+
+//To capitalize the first letter in passed value
+const capitalize = s => {
+    if (typeof s !== "string") return ""
+    return s[0].toUpperCase() + s.slice(1);
+}
+
+//get correct pic for cards
+function getPokeNumber(id) {
+    if (id < 10) return `00${id}`
+    if (id > 9 && id < 100) {
+        return `0${id}`
+    } else return id
+}
 
 let mainArea = document.querySelector('main')
 
+//get card elements into main
 function populateDOM(single_pokemon) {
-    //single_pokemon.hp = getHP(single_pokemon.id)
     let pokeScene = document.createElement('div')
     let pokeCard = document.createElement('div')
     let pokeFront = document.createElement('div')
@@ -79,9 +81,9 @@ function populateDOM(single_pokemon) {
 
     mainArea.appendChild(pokeScene)
 
+    //card flip
     pokeCard.addEventListener('click', function () {
         pokeCard.classList.toggle('is-flipped')
-       
     })
 }
 
@@ -103,16 +105,28 @@ function fillCardBack(pokeBack, data) {
     pokeBack.setAttribute('class', 'card__face card__face--back')
     let pokeOrder = document.createElement('p')
     let pokeHP = document.createElement('h5')
+    let pokeAb = document.createElement("h5")
+    let pokeAbilities = document.createElement("ul")
     pokeOrder.textContent = `#${data.id} ${data.name[0].toUpperCase()}${data.name.slice(1)}`
-    pokeHP.textContent = getHP(data.id)
     pokeBack.appendChild(pokeOrder)
     pokeBack.appendChild(pokeHP)
+    pokeBack.appendChild(pokeAb)
+    pokeBack.appendChild(pokeAbilities)
+
+    //target types
+    pokeOrder.textContent = `Type: ${data.types
+        .map(t => t.type.name)}`
+
+    pokeHP.textContent = `HP: ${data.stats[5].base_stat}`
+    pokeAb.textContent = "Abilities:"
+
+    //Abilities
+    pokeAbilities.innerHTML = data.abilities
+        .map(a => a.ability.name)
+        .reduce(
+            (accumulator, currentValue) =>
+                (accumulator += `<li class="pokeability">${currentValue}</li>`),
+            "")
 }
 
 
-function getPokeNumber(id) {
-    if (id < 10) return `00${id}`
-    if (id > 9 && id < 100) {
-        return `0${id}`
-    } else return id
-}

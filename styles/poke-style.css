@@ -1,6 +1,15 @@
-* {
+*, *before, *after {
+    box-sizing: border-box;
+}
+
+/* * {
     margin: 0;
     padding: 0;
+} */
+
+body {
+    background-color: #56756C;
+    margin: 15px;
 }
 
 h1 {
@@ -10,16 +19,27 @@ h1 {
     font-size: 2rem;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     height: 100px;
+    margin: 0 0 1em 0;
     
 }
+
+p {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    margin: 0px;
+    font-size: 18px;
+    line-height: 0px;
+    margin: 0 0 1em 0;
+} 
 
 main {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 1rem;
+    grid-gap: 2rem;
     width: 100%;
-    max-width:1280px;
-    margin: 0 auto;
+    max-width:1680px;
+    margin:100px 0 auto;
     margin-bottom: 6rem;
     background-color: #56756C;
 }
@@ -73,30 +93,24 @@ main {
 
 .card__face--back {
     transform: rotateY(180deg);
+    background: #ECE9E7;
 }
 
-p {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    margin: 0px;
-    font-size: 18px;
-    line-height: 0px;
-} 
+ul {
+    list-style-type: none;
+  }
 
 button {
     width: 150px;
-    height: 80px;
+    height: 40px;
     background-color: #ECE9E7;
     color:#B29B87;
     font-size: 1.5rem;
-    border-radius: 10px;
-    margin: 15px;
+    border-radius: 0px;
+    margin: 100px;
+    border: none;
 }
-body {
-    background-color: #56756C;
-    margin: 15px;
-}
+
 
 footer {
     background-color: #ECE9E7;
