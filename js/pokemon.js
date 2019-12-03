@@ -105,7 +105,7 @@ function fillCardBack(pokeBack, data) {
     pokeBack.setAttribute('class', 'card__face card__face--back')
     let pokeOrder = document.createElement('p')
     let pokeHP = document.createElement('h5')
-    let pokeAb = document.createElement("h5")
+    let pokeAb = document.createElement('h5')
     let pokeAbilities = document.createElement("ul")
     pokeOrder.textContent = `#${data.id} ${data.name[0].toUpperCase()}${data.name.slice(1)}`
     pokeBack.appendChild(pokeOrder)
