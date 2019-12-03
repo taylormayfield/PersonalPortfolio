@@ -102,13 +102,12 @@ ul {
 
 button {
     width: 150px;
-    height: 40px;
+    height: 60px;
     background-color: #ECE9E7;
     color:#B29B87;
     font-size: 1.5rem;
-    border-radius: 0px;
+    border-radius: 10px;
     margin: 100px;
-    border: none;
 }
 
 
