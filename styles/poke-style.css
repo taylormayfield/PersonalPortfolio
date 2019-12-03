@@ -99,13 +99,13 @@ main {
 }
 
 .card__face--front {
-    border-radius: 10px;
+    border-radius: 0px;
 }
 
 .card__face--back {
     transform: rotateY(180deg);
     background: #ECE9E7;
-    border-radius: 10px;
+    border-radius: 0px;
 }
 
 ul {
