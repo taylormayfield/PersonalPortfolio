@@ -42,6 +42,27 @@ function populateDOM(single_char) {
     })
 }
 
+function fillCardFront(charFront, data) {
+    charFront.setAttribute('class', 'card__face card__face--front')
+    let name = document.createElement('p')
+    let pic = document.createElement('img')
+    pic.setAttribute('class', 'picDivs')
+    let charNum = getPokeNumber(data.id)
+    charFront.appendChild(name)
+    //pic.src = `../images/${pokeNum}.png`
+    pic.src = `https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${pokeNum}.png`
+
+    charFront.appendChild(pic)
+    charFront.appendChild(name)
+}
+
+function fillCardBack(charBack, data) {
+    charBack.setAttribute('class', 'card__face card__face--back')
+    let charOrder = document.createElement('p')
+    charOrder.textContent = `#${data.id} ${data.name[0].toUpperCase()}${data.name.slice(1)}`
+    charBack.appendChild(charOrder)
+}
+
 
 
 
