@@ -114,3 +114,15 @@ function populateCardContent(senator) {
 function _calculateAge(birthday) {
     var age
 }
+
+
+
+//PUT THE FOLLOWING INTO INDEX.HTML TO CONNECT TO HOME PAGE
+/*<a href="senators.html" target="_blank" class="project project-tile">
+<img class="project-image" src="./images/senators.jpeg" alt="project" />
+<p class="project-title">
+  <span class="code">&lt;</span>
+  Senators Page
+  <span class="code">&#47;&gt;</span>
+</p>
+</a>*/
