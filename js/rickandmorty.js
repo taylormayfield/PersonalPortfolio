@@ -84,3 +84,4 @@ function fillCardBack(charBack, data) {
 
 
   //images "https://rickandmortyapi.com/api/character/avatar/.jpeg"
+
