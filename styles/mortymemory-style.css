@@ -70,6 +70,7 @@
   }
   .card .front {
     border: 5px solid #56756C;
+    background: #ECE9E7;
     padding: 5px;
   }
   .card .back {
