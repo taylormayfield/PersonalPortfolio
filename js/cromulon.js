@@ -7,6 +7,7 @@
     var disableButton = false;
     var tries = 0;
     var startButton = $('.button');
+    var rickmorty = $('.rickmorty');
     var cromulon = $('.cromulon');
     var $board = $('.board');
     var $modal = $('.modal');
@@ -43,7 +44,9 @@
           disableButton = true;
           playSound(showMe);
           cromulon.addClass('activated');
+          rickmorty.addClass('activated');
           setTimeout(function(){
+            rickmorty.removeClass('activated')
             cromulon.removeClass('activated').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',
             function(e) {
               $(this).css('display', 'none');
