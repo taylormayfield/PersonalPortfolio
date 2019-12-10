@@ -21,7 +21,7 @@
     padding: 15px;
     position: absolute;
     z-index: 500;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 1;
@@ -47,6 +47,13 @@
     display: block;
     top: 15%;
     transition: all 2s;
+  }
+
+  .rickandmorty{
+    position: absolute;
+    align-items: center;
+    padding: 15px;
+    left: 25%;
   }
   .card-container {
     float: left;
