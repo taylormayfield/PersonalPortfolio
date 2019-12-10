@@ -10,11 +10,14 @@
   body{
     position: relative;
     font-family: Helvetica;
+    background-color:#ECE9E7;
   }
   .button{
     font-family: Helvetica;
     font-size: 1.5em;
-    border: 5px solid #56756C;
+    border: 5px solid#56756C ;
+    background-color:#ECE9E7;
+    color: #B29B87;
     padding: 15px;
     position: absolute;
     z-index: 500;
@@ -129,7 +132,7 @@
     left: 0;
     top: 0;
     color: #ECE9E7;
-    background-color: #56756C;
+    background-color: ;
     background-color: #ECE9E7;
     display: none;
   }
@@ -138,7 +141,7 @@
     font-size: 3em;
     position: relative;
     width: 60%;
-    background-color: #B29B87;
+    background-color: #56756C;
     padding: 25px;
     text-align: center;
     -webkit-animation-name: animatetop;
