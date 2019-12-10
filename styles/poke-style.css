@@ -25,17 +25,13 @@ h1 {
 
 h5 {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    text-align: justify;
     margin-block-start: 10px;
     margin-block-end: 1px;
     color: #B29B87;
-    margin-right: auto;
-    margin-left: auto;
     font-size: 1rem;
-    height: 20px;
-        left: 10px;
+    height: 30px;
     margin: 0 0 1em 0;
-    bottom: 10px;
+    padding-left: 10px;
   }
 
 p {
@@ -71,7 +67,10 @@ main {
 }
 
 .picDivs {
-    width: 100%;
+    width: 90%;
+    padding: 10px;
+   justify-content: center;
+   padding-top: 30px;
 }
 
 .charDivs {
@@ -107,7 +106,6 @@ main {
     height: 100%;
     line-height: 60px;
     background-color: #ECE9E7;
-    text-align: center;
     font-weight: bold;
     font-size: 40px;
     backface-visibility: hidden;
